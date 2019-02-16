@@ -8,8 +8,7 @@ class NotesList extends Component {
         {this.props.data.map((item, index) => {
           return (
             <Notes key={index}>
-              {item.text}
-
+              {item.name} {item.price}
               <button
                 onClick={() => {
                   this.props.deleteTask(index);

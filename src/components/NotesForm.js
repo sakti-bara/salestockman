@@ -1,51 +1,48 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
-const InputFormStyle = styled.textarea`
-  width: 250px;
-  height: 100px;
-`;
+import NavForm from './NavForm';
 
 class NotesForm extends Component {
   constructor() {
     super();
     this.state = {
-      inputText: ''
+      condition: []
     };
   }
 
-  handleChange = event => {
+  clearInput = () => {
     this.setState({
-      inputText: event.target.value
+      condition: []
     });
   };
 
-  clearInput = () => {
+  newNav = text => {
+    const newCondition = this.state.condition.concat({
+      condition: text
+    });
+
     this.setState({
-      inputText: ''
+      condition: newCondition
     });
   };
 
   render() {
     return (
-      <form
-        onSubmit={event => {
-          event.preventDefault();
-          this.props.addNotes(event, this.state.inputText);
-          this.clearInput();
-        }}
-      >
-        <InputFormStyle
-          type="text"
-          placeholder="Add News..."
-          value={this.state.inputText}
-          onChange={this.handleChange}
-          required
+      <div>
+        <button
+          onClick={() => {
+            this.newNav('true');
+          }}
+        >
+          &#9776; ADD PRODUCT
+        </button>
+
+        <NavForm
+          addNotes={this.props.addNotes}
+          condition={this.state.condition}
+          clearInput={this.clearInput}
         />
-        <div>
-          <input type="submit" value="add" />
-        </div>
-      </form>
+      </div>
     );
   }
 }
