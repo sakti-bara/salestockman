@@ -2,6 +2,13 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import NavForm from './NavForm';
 
+const ButtonAddProduct = styled.button`
+  display: flex;
+  align-content: flex-start;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+`;
+
 class NotesForm extends Component {
   constructor() {
     super();
@@ -26,9 +33,20 @@ class NotesForm extends Component {
     });
   };
 
+  // addProdcutHandler = () => {
+  //   const newCondition = this.state.condition.filter((item, itemIndex) => {
+  //     if (itemIndex !== null && itemIndex === 0) {
+  //     }
+  //   });
+
+  //   this.setState({
+  //     condition: newCondition
+  //   });
+  // };
+
   render() {
     return (
-      <div>
+      <ButtonAddProduct>
         <button
           onClick={() => {
             this.newNav('true');
@@ -42,7 +60,7 @@ class NotesForm extends Component {
           condition={this.state.condition}
           clearInput={this.clearInput}
         />
-      </div>
+      </ButtonAddProduct>
     );
   }
 }
