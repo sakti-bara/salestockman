@@ -3,6 +3,12 @@ import Notes from '../components/Notes';
 import photoApparels from '../photos/Apparels-exp.jpg';
 import photoHeadwears from '../photos/Headwears-exp.jpg';
 import photoTrousers from '../photos/Trousers-exp.jpg';
+import styled from 'styled-components';
+
+const ListProdut = styled.ul`
+  display: flex;
+  align-content: flex-start;
+`;
 
 class NotesList extends Component {
   constructor() {
@@ -13,10 +19,20 @@ class NotesList extends Component {
   }
   render() {
     return (
-      <ul>
+      <ListProdut>
         {this.props.data.map((item, index) => {
           return (
             <Notes key={index}>
+              <div>
+                <button
+                  onClick={() => {
+                    this.props.deleteTask(index);
+                  }}
+                >
+                  ✖
+                </button>
+              </div>
+
               <img src={photoApparels} alt="" />
               <h2>{item.name}</h2>
               <p>{item.category}</p>
@@ -24,22 +40,19 @@ class NotesList extends Component {
 
               <button
                 onClick={() => {
-                  this.props.deleteTask(index);
+                  const newNo = this.props.no - 1;
+                  const newData = this.props.data[newNo - 1];
+                  // console.log(newNo);
+                  // console.log(this.props.data[0]);
+                  this.props.addCart(newData);
                 }}
               >
-                DELETE
-              </button>
-              <button
-                onClick={() => {
-                  this.props.editTask(index);
-                }}
-              >
-                EDIT
+                ADD TO CART 🛒
               </button>
             </Notes>
           );
         })}
-      </ul>
+      </ListProdut>
     );
   }
 }

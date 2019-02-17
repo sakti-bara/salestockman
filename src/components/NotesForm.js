@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import NavForm from './NavForm';
 
-const ButtonAddProduct = styled.button`
-  display: flex;
-  align-content: flex-start;
-  flex-direction: column;
-  font-family: Arial, Helvetica, sans-serif;
-`;
+// const ButtonAddProduct = styled.button`
+//   display: flex;
+//   align-content: flex-start;
+//   flex-direction: column;
+//   font-family: Arial, Helvetica, sans-serif;
+// `;
 
 class NotesForm extends Component {
   constructor() {
@@ -33,9 +33,20 @@ class NotesForm extends Component {
     });
   };
 
+  handlerAdd = text => {
+    if (this.state.condition === null && this.state.condition.length !== 1) {
+      const newCondition = this.state.condition.concat({
+        text
+      });
+      this.setState({
+        conditin: newCondition
+      });
+    }
+  };
+
   render() {
     return (
-      <ButtonAddProduct>
+      <div>
         <button
           onClick={() => {
             this.newNav('true');
@@ -49,7 +60,7 @@ class NotesForm extends Component {
           condition={this.state.condition}
           clearInput={this.clearInput}
         />
-      </ButtonAddProduct>
+      </div>
     );
   }
 }

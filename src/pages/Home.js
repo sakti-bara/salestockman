@@ -2,11 +2,13 @@ import React, { Component } from 'react';
 
 import NotesForm from '../components/NotesForm';
 import NotesList from '../components/NotesList';
-// import styled from 'styled-components';
+import Chart from '../components/CartForm';
+import styled from 'styled-components';
 
-// const DivStyle = styled.div`
-//   text-align: left;
-// `;
+const DivStyle = styled.div`
+  display: flex;
+  align-content: left;
+`;
 
 class Home extends Component {
   constructor() {
@@ -14,7 +16,10 @@ class Home extends Component {
 
     this.state = {
       data: [],
-      no: 1
+      no: 1,
+      cartGroup: [],
+      noCart: 1,
+      temporaryCart: []
     };
   }
 
@@ -40,6 +45,21 @@ class Home extends Component {
     this.setState({
       data: newNotes,
       no: numberList + 1
+    });
+  };
+
+  addCart = newNumber => {
+    const newCart = this.state.temporaryCart.concat(newNumber);
+    const newAddCart = this.state.cartGroup.concat({
+      cart: newCart,
+      numberCart: this.state.noCart
+    });
+
+    let numberList = this.state.noCart;
+
+    this.setState({
+      cartGroup: newAddCart,
+      noCart: numberList + 1
     });
   };
 
@@ -73,11 +93,15 @@ class Home extends Component {
     return (
       <div>
         <NotesForm addNotes={this.addNotes} />
-        <NotesList
-          data={this.state.data}
-          deleteTask={this.deleteTask}
-          editTask={this.editTask}
-        />
+        <Chart numberCart={this.state.noCart} addCartGroup={this.addCart} />
+        <DivStyle>
+          <NotesList
+            no={this.state.no}
+            data={this.state.data}
+            deleteTask={this.deleteTask}
+            addCart={this.addCart}
+          />
+        </DivStyle>
       </div>
     );
   }
