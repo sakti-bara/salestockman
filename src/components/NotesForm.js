@@ -33,17 +33,6 @@ class NotesForm extends Component {
     });
   };
 
-  // addProdcutHandler = () => {
-  //   const newCondition = this.state.condition.filter((item, itemIndex) => {
-  //     if (itemIndex !== null && itemIndex === 0) {
-  //     }
-  //   });
-
-  //   this.setState({
-  //     condition: newCondition
-  //   });
-  // };
-
   render() {
     return (
       <ButtonAddProduct>

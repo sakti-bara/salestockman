@@ -18,13 +18,20 @@ class Home extends Component {
     };
   }
 
-  addNotes = (event, inputText, productCategory, productPrice) => {
+  addNotes = (
+    event,
+    productName,
+    productCategory,
+    productPrice,
+    productPhotos
+  ) => {
     event.preventDefault();
 
     const newNotes = this.state.data.concat({
-      name: inputText,
+      name: productName,
       category: productCategory,
       price: productPrice,
+      photos: productPhotos,
       id: this.state.no
     });
 
