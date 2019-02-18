@@ -36,8 +36,8 @@ class NotesList extends Component {
 
               <img src={photoApparels} alt="" />
               <h2>{item.name}</h2>
-              <p>{item.category}</p>
-              <p>{item.price}</p>
+              <p>Category: {item.category}</p>
+              <p>IDR: {item.price}</p>
 
               <button
                 onClick={() => {
