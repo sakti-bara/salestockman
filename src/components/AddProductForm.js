@@ -46,7 +46,7 @@ class NavForm extends Component {
                   this.state.name,
                   this.state.category,
                   this.state.price,
-                  this.photo
+                  this.state.photo
                 )
 
                 this.props.clearInput()
