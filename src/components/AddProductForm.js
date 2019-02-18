@@ -1,50 +1,37 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
-import photoApparels from '../photos/Apparels-exp.jpg';
-import photoHeadwears from '../photos/Headwears-exp.jpg';
-import photoTrousers from '../photos/Trousers-exp.jpg';
+import React, { Component } from 'react'
+import styled from 'styled-components'
 
 const SideNav = styled.div`
   background-color: blanchedalmond;
-`;
+`
 
 class NavForm extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       name: '',
       price: '',
       category: ''
-    };
+    }
   }
 
   handleChangeName = event => {
     this.setState({
       name: event.target.value
-    });
-  };
+    })
+  }
 
   handleChangePrice = event => {
     this.setState({
       price: event.target.value
-    });
-  };
+    })
+  }
 
   handleChangeCategory = event => {
     this.setState({
       category: event.target.value
-    });
-  };
-
-  selectPhotoProduct = () => {
-    if (this.state.category === 'Headwears') {
-      this.photo = '../photos/Headwears-exp.jpg';
-    } else if (this.state.category === 'Apparels') {
-      this.photo = '../photos/Apparels-exp.jpg';
-    } else {
-      this.photo = '../photos/Trousers-exp.jpg';
-    }
-  };
+    })
+  }
 
   render() {
     return (
@@ -53,23 +40,22 @@ class NavForm extends Component {
           return (
             <form
               onSubmit={event => {
-                event.preventDefault();
-                this.selectPhotoProduct();
+                event.preventDefault()
                 this.props.addNotes(
                   event,
                   this.state.name,
                   this.state.category,
                   this.state.price,
                   this.photo
-                );
+                )
 
-                this.props.clearInput();
+                this.props.clearInput()
               }}
             >
               <div>
                 <button
                   onClick={() => {
-                    this.props.clearInput();
+                    this.props.clearInput()
                   }}
                 >
                   X
@@ -108,11 +94,11 @@ class NavForm extends Component {
                 <input type="submit" value="ADD" />
               </div>
             </form>
-          );
+          )
         })}
       </SideNav>
-    );
+    )
   }
 }
 
-export default NavForm;
+export default NavForm

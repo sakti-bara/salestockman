@@ -1,21 +1,21 @@
-import React, { Component } from 'react';
-import ListAddProduct from './ListAddProduct';
-import photoApparels from '../photos/Apparels-exp.jpg';
-import photoHeadwears from '../photos/Headwears-exp.jpg';
-import photoTrousers from '../photos/Trousers-exp.jpg';
-import styled from 'styled-components';
+import React, { Component } from 'react'
+import ListAddProduct from './ListAddProduct'
+import photoApparels from '../photos/Apparels-exp.jpg'
+import photoHeadwears from '../photos/Headwears-exp.jpg'
+import photoTrousers from '../photos/Trousers-exp.jpg'
+import styled from 'styled-components'
 
 const ListProdut = styled.ul`
   display: flex;
   align-content: flex-start;
-`;
+`
 
 class NotesList extends Component {
   constructor() {
-    super();
+    super()
     this.state = {
       photos: [photoApparels, photoHeadwears, photoTrousers]
-    };
+    }
   }
 
   render() {
@@ -27,7 +27,7 @@ class NotesList extends Component {
               <div>
                 <button
                   onClick={() => {
-                    this.props.deleteTask(index);
+                    this.props.deleteTask(index)
                   }}
                 >
                   ✖
@@ -41,19 +41,22 @@ class NotesList extends Component {
 
               <button
                 onClick={() => {
-                  const newNo = this.props.no - 1;
+                  const newNo = this.props.no - 1
 
-                  this.props.addCart(this.props.data[newNo - 1]);
+                  this.props.addCart(this.props.data[newNo - 1])
                 }}
               >
-                ADD TO CART 🛒
+                ADD TO CART{' '}
+                <span role="img" aria-label="cart">
+                  🛒
+                </span>
               </button>
             </ListAddProduct>
-          );
+          )
         })}
       </ListProdut>
-    );
+    )
   }
 }
 
-export default NotesList;
+export default NotesList
