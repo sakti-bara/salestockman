@@ -17,6 +17,7 @@ class NotesList extends Component {
       photos: [photoApparels, photoHeadwears, photoTrousers]
     };
   }
+
   render() {
     return (
       <ListProdut>
@@ -41,10 +42,8 @@ class NotesList extends Component {
               <button
                 onClick={() => {
                   const newNo = this.props.no - 1;
-                  const newData = this.props.data[newNo - 1];
-                  // console.log(newNo);
-                  // console.log(this.props.data[0]);
-                  this.props.addCart(newData);
+
+                  this.props.addCart(this.props.data[newNo - 1]);
                 }}
               >
                 ADD TO CART 🛒

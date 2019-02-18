@@ -2,12 +2,12 @@ import React, { Component } from 'react';
 
 import NotesForm from '../components/NotesForm';
 import NotesList from '../components/NotesList';
-import Chart from '../components/CartForm';
+import CartForm from '../components/CartForm';
 import styled from 'styled-components';
 
 const DivStyle = styled.div`
   display: flex;
-  align-content: left;
+  justify-content: center;
 `;
 
 class Home extends Component {
@@ -19,7 +19,7 @@ class Home extends Component {
       no: 1,
       cartGroup: [],
       noCart: 1,
-      temporaryCart: []
+      sourcePhotos: []
     };
   }
 
@@ -49,16 +49,9 @@ class Home extends Component {
   };
 
   addCart = newNumber => {
-    const newCart = this.state.temporaryCart.concat(newNumber);
-    const newAddCart = this.state.cartGroup.concat({
-      cart: newCart,
-      numberCart: this.state.noCart
-    });
-
+    this.state.cartGroup.push(newNumber);
     let numberList = this.state.noCart;
-
     this.setState({
-      cartGroup: newAddCart,
       noCart: numberList + 1
     });
   };
@@ -92,8 +85,10 @@ class Home extends Component {
   render() {
     return (
       <div>
-        <NotesForm addNotes={this.addNotes} />
-        <Chart numberCart={this.state.noCart} addCartGroup={this.addCart} />
+        <DivStyle>
+          <NotesForm addNotes={this.addNotes} />
+          <CartForm numberCart={this.state.noCart} cartGroup={this.cartGroup} />
+        </DivStyle>
         <DivStyle>
           <NotesList
             no={this.state.no}

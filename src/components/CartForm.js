@@ -1,12 +1,24 @@
 import React, { Component } from 'react';
+import CartList from '../components/CartList';
 
 class CartForm extends Component {
   constructor() {
     super();
     this.state = {
-      cartNumber: 0
+      condition: []
     };
   }
+
+  newNav = text => {
+    const newCondition = this.state.condition.concat({
+      condition: text
+    });
+
+    this.setState({
+      condition: newCondition
+    });
+  };
+
   render() {
     return (
       <div>
@@ -17,6 +29,10 @@ class CartForm extends Component {
         >
           🛒{this.props.numberCart - 1}
         </button>
+        <CartList
+          condition={this.state.condition}
+          cartGroup={this.props.cartGroup}
+        />
       </div>
     );
   }

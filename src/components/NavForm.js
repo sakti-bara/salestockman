@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import photoApparels from '../photos/Apparels-exp.jpg';
+import photoHeadwears from '../photos/Headwears-exp.jpg';
+import photoTrousers from '../photos/Trousers-exp.jpg';
 
 const SideNav = styled.div`
   background-color: blanchedalmond;
@@ -11,8 +14,7 @@ class NavForm extends Component {
     this.state = {
       name: '',
       price: '',
-      category: '',
-      photos: ''
+      category: ''
     };
   }
 
@@ -34,6 +36,16 @@ class NavForm extends Component {
     });
   };
 
+  selectPhotoProduct = () => {
+    if (this.state.category === 'Headwears') {
+      this.photo = '../photos/Headwears-exp.jpg';
+    } else if (this.state.category === 'Apparels') {
+      this.photo = '../photos/Apparels-exp.jpg';
+    } else {
+      this.photo = '../photos/Trousers-exp.jpg';
+    }
+  };
+
   render() {
     return (
       <SideNav>
@@ -42,13 +54,16 @@ class NavForm extends Component {
             <form
               onSubmit={event => {
                 event.preventDefault();
+                this.selectPhotoProduct();
                 this.props.addNotes(
                   event,
                   this.state.name,
                   this.state.category,
                   this.state.price,
-                  this.state.photos
+                  this.photo
                 );
+
+                this.props.clearInput();
               }}
             >
               <div>
@@ -75,7 +90,7 @@ class NavForm extends Component {
                 <select onChange={this.handleChangeCategory}>
                   <option>Outfits category:</option>
                   <option value="Headwears">Headwears</option>
-                  <option value="Apparels">Apparels</option>
+                  <option value="Apparels">Top</option>
                   <option value="Trousers">Trousers</option>
                 </select>
               </div>
@@ -90,25 +105,7 @@ class NavForm extends Component {
                 />
               </div>
               <div>
-                <input
-                  onClick={() => {
-                    if (this.state.category === 'Headwears') {
-                      this.setState({
-                        photos: '../photos/Headwears-exp.jpg'
-                      });
-                    } else if (this.state.category === 'Apparels') {
-                      this.setState({
-                        photos: '../photos/Apparels-exp.jpg'
-                      });
-                    } else {
-                      this.setState({
-                        photos: '../photos/Trousers-exp.jpg'
-                      });
-                    }
-                  }}
-                  type="submit"
-                  value="ADD"
-                />
+                <input type="submit" value="ADD" />
               </div>
             </form>
           );
