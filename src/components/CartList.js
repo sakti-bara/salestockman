@@ -6,13 +6,7 @@ class CartList extends Component {
     return (
       <div>
         {this.props.condition.map(item => {
-          return (
-            <ul>
-              {this.props.cartGroup.map((item, index) => {
-                return <li key={index}>test</li>;
-              })}
-            </ul>
-          );
+          return <Cart cartGroup={this.props.cartGroup} />;
         })}
       </div>
     );

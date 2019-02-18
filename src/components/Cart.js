@@ -7,7 +7,13 @@ const LiStyled = styled.li`
 
 class Cart extends Component {
   render() {
-    return <LiStyled>{this.props.children}</LiStyled>;
+    return (
+      <ul>
+        {this.props.cartGroup.map((item, index) => {
+          return <LiStyled key={index}>{item.name}</LiStyled>;
+        })}
+      </ul>
+    );
   }
 }
 

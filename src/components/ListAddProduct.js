@@ -5,10 +5,10 @@ const LiStyled = styled.li`
   list-style: none;
 `;
 
-class Notes extends Component {
+class ListAddProduct extends Component {
   render() {
     return <LiStyled>{this.props.children}</LiStyled>;
   }
 }
 
-export default Notes;
+export default ListAddProduct;

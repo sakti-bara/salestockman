@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
-import NotesForm from '../components/NotesForm';
-import NotesList from '../components/NotesList';
+import ButtonAddProductForm from '../components/ButtonAddProductForm';
+import ProductList from '../components/ProductList';
 import CartForm from '../components/CartForm';
 import styled from 'styled-components';
 
@@ -86,11 +86,11 @@ class Home extends Component {
     return (
       <div>
         <DivStyle>
-          <NotesForm addNotes={this.addNotes} />
+          <ButtonAddProductForm addNotes={this.addNotes} />
           <CartForm numberCart={this.state.noCart} cartGroup={this.cartGroup} />
         </DivStyle>
         <DivStyle>
-          <NotesList
+          <ProductList
             no={this.state.no}
             data={this.state.data}
             deleteTask={this.deleteTask}

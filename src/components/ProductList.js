@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Notes from '../components/Notes';
+import ListAddProduct from './ListAddProduct';
 import photoApparels from '../photos/Apparels-exp.jpg';
 import photoHeadwears from '../photos/Headwears-exp.jpg';
 import photoTrousers from '../photos/Trousers-exp.jpg';
@@ -23,7 +23,7 @@ class NotesList extends Component {
       <ListProdut>
         {this.props.data.map((item, index) => {
           return (
-            <Notes key={index}>
+            <ListAddProduct key={index}>
               <div>
                 <button
                   onClick={() => {
@@ -48,7 +48,7 @@ class NotesList extends Component {
               >
                 ADD TO CART 🛒
               </button>
-            </Notes>
+            </ListAddProduct>
           );
         })}
       </ListProdut>

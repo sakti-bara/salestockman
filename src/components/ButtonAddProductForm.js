@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import NavForm from './NavForm';
+import ButtonAddProductForm from './AddProductForm';
 
 // const ButtonAddProduct = styled.button`
 //   display: flex;
@@ -55,7 +55,7 @@ class NotesForm extends Component {
           &#9776; ADD PRODUCT
         </button>
 
-        <NavForm
+        <ButtonAddProductForm
           addNotes={this.props.addNotes}
           condition={this.state.condition}
           clearInput={this.clearInput}
