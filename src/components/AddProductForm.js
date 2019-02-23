@@ -5,7 +5,7 @@ const SideNav = styled.div`
   background-color: blanchedalmond;
 `
 
-class NavForm extends Component {
+class AddProductForm extends Component {
   constructor() {
     super()
     this.state = {
@@ -33,6 +33,16 @@ class NavForm extends Component {
     })
   }
 
+  addPhotos = () => {
+    if (this.state.category === 'Headwears') {
+      return 'assets/headwears.jpg'
+    } else if (this.state.category === 'TOP') {
+      return 'assets/top.jpg'
+    } else {
+      return 'assets/trousers.jpg'
+    }
+  }
+
   render() {
     return (
       <SideNav>
@@ -41,12 +51,12 @@ class NavForm extends Component {
             <form
               onSubmit={event => {
                 event.preventDefault()
-                this.props.addNotes(
+                this.props.addProduct(
                   event,
                   this.state.name,
                   this.state.category,
                   this.state.price,
-                  this.state.photo
+                  this.addPhotos()
                 )
 
                 this.props.clearInput()
@@ -76,7 +86,7 @@ class NavForm extends Component {
                 <select onChange={this.handleChangeCategory}>
                   <option>Outfits category:</option>
                   <option value="Headwears">Headwears</option>
-                  <option value="Apparels">Top</option>
+                  <option value="TOP">Top</option>
                   <option value="Trousers">Trousers</option>
                 </select>
               </div>
@@ -101,4 +111,4 @@ class NavForm extends Component {
   }
 }
 
-export default NavForm
+export default AddProductForm

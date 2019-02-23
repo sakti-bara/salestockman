@@ -1,14 +1,14 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from 'react'
+import styled from 'styled-components'
 
 const LiStyled = styled.li`
   list-style: none;
-`;
+`
 
-class ListAddProduct extends Component {
+class Product extends Component {
   render() {
-    return <LiStyled>{this.props.children}</LiStyled>;
+    return <LiStyled>{this.props.children}</LiStyled>
   }
 }
 
-export default ListAddProduct;
+export default Product

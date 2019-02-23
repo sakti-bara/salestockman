@@ -7,11 +7,12 @@ const ListProduct = styled.ul`
   align-content: flex-start;
 `
 
-class NotesList extends Component {
+class ProductList extends Component {
   render() {
     return (
       <ListProduct>
         {this.props.data.map((item, index) => {
+          console.log(this.props.data)
           return (
             <Product key={index}>
               <div>
@@ -24,7 +25,7 @@ class NotesList extends Component {
                 </button>
               </div>
 
-              <img src={item.photo} alt="" />
+              <img src={item.photos} alt="" />
               <h2>{item.name}</h2>
               <p>Category: {item.category}</p>
               <p>IDR: {item.price}</p>
@@ -49,4 +50,4 @@ class NotesList extends Component {
   }
 }
 
-export default NotesList
+export default ProductList

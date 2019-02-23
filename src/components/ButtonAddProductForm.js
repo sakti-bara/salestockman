@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import ButtonAddProductForm from './AddProductForm'
+import AddProductForm from './AddProductForm'
 
 // const ButtonAddProduct = styled.button`
 //   display: flex;
@@ -8,7 +8,7 @@ import ButtonAddProductForm from './AddProductForm'
 //   font-family: Arial, Helvetica, sans-serif;
 // `;
 
-class NotesForm extends Component {
+class ButtonAddProductForm extends Component {
   constructor() {
     super()
     this.state = {
@@ -54,8 +54,8 @@ class NotesForm extends Component {
           &#9776; ADD PRODUCT
         </button>
 
-        <ButtonAddProductForm
-          addNotes={this.props.addNotes}
+        <AddProductForm
+          addProduct={this.props.addProduct}
           condition={this.state.condition}
           clearInput={this.clearInput}
         />
@@ -64,4 +64,4 @@ class NotesForm extends Component {
   }
 }
 
-export default NotesForm
+export default ButtonAddProductForm
