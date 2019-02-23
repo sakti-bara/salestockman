@@ -1,13 +1,6 @@
 import React, { Component } from 'react'
 import AddProductForm from './AddProductForm'
 
-// const ButtonAddProduct = styled.button`
-//   display: flex;
-//   align-content: flex-start;
-//   flex-direction: column;
-//   font-family: Arial, Helvetica, sans-serif;
-// `;
-
 class ButtonAddProductForm extends Component {
   constructor() {
     super()
@@ -22,7 +15,7 @@ class ButtonAddProductForm extends Component {
     })
   }
 
-  newNav = text => {
+  addForm = text => {
     const newCondition = this.state.condition.concat({
       condition: text
     })
@@ -48,7 +41,11 @@ class ButtonAddProductForm extends Component {
       <div>
         <button
           onClick={() => {
-            this.newNav('true')
+            if (this.state.condition.length === 0) {
+              this.addForm('Appear')
+            } else {
+              return null
+            }
           }}
         >
           &#9776; ADD PRODUCT
